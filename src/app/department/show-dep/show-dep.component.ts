@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import {Department} from 'src/app/models/department-model'
 
 @Component({
   selector: 'app-show-dep',
@@ -29,4 +29,11 @@ export class ShowDepComponent implements OnInit {
     this.listData = new MatTableDataSource(dummyData);
   }
 
+  onEdit(dep:Department) : void{
+    console.log(dep);
+  }
+
+  onDelete(id : number) : void{
+    console.log(id);
+  }
 }
