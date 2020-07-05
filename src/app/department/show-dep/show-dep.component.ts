@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {Department} from 'src/app/models/department-model'
+import { MatTableDataSource } from '@angular/material/table';
+import { Department } from 'src/app/models/department-model';
+import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
   selector: 'app-show-dep',
@@ -9,13 +10,16 @@ import {Department} from 'src/app/models/department-model'
 })
 export class ShowDepComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:DepartmentService) { }
 
   listData : MatTableDataSource<any>;
   displayedColumns : string[] = ['Options', 'DepartmentID', 'DepartmentName'];
 
   ngOnInit(): void {
-    this.refreshDepList();
+    //this.refreshDepList();
+    this.service.getDepList().subscribe(data => {
+      this.listData = new MatTableDataSource(data);
+    });
   }
 
   refreshDepList() : void{

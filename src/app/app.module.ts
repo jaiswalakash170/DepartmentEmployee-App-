@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import {EmployeeService} from './services/employee.service';
     MatInputModule,
     MatIconModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent]
