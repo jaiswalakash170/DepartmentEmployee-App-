@@ -12,7 +12,7 @@
             <button mat-icon-button (click)="onEdit(element)">
                 <mat-icon>launch</mat-icon>
             </button>
-            <button mat-icon-button color="warn" (click)="onDelete(element.DepartmentID)">
+            <button mat-icon-button color="warn" (click)="onDelete(element.departmentID)">
                 <mat-icon>delete_outline</mat-icon>
             </button>
         </td>
@@ -21,13 +21,13 @@
     <!-- Name Column -->
     <ng-container matColumnDef="DepartmentID">
       <th mat-header-cell *matHeaderCellDef> DepartmentID </th>
-      <td mat-cell *matCellDef="let element"> {{element.DepartmentID}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.departmentID}} </td>
     </ng-container>
   
     <!-- Weight Column -->
     <ng-container matColumnDef="DepartmentName">
       <th mat-header-cell *matHeaderCellDef> DepartmentName </th>
-      <td mat-cell *matCellDef="let element"> {{element.DepartmentName}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.departmentName}} </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
