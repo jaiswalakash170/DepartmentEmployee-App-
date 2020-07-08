@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {Department} from 'src/app/models/department-model'
+import { MatTableDataSource } from '@angular/material/table';
+import { Department } from 'src/app/models/department-model';
+import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
   selector: 'app-show-dep',
@@ -9,7 +10,7 @@ import {Department} from 'src/app/models/department-model'
 })
 export class ShowDepComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:DepartmentService) { }
 
   listData : MatTableDataSource<any>;
   displayedColumns : string[] = ['Options', 'DepartmentID', 'DepartmentName'];
@@ -19,14 +20,17 @@ export class ShowDepComponent implements OnInit {
   }
 
   refreshDepList() : void{
-    var dummyData = [{DepartmentID:1, DepartmentName:"IT"}, 
+    this.service.getDepList().subscribe(data => {
+      this.listData = new MatTableDataSource(data);
+    });
+    /*var dummyData = [{DepartmentID:1, DepartmentName:"IT"}, 
                      {DepartmentID:2, DepartmentName:"Finance"},
                      {DepartmentID:3, DepartmentName:"HR"},
                      {DepartmentID:4, DepartmentName:"R&D"},
                      {DepartmentID:5, DepartmentName:"Marketing"},
                      {DepartmentID:6, DepartmentName:"Admin"},
                      {DepartmentID:7, DepartmentName:"Support"},];
-    this.listData = new MatTableDataSource(dummyData);
+    this.listData = new MatTableDataSource(dummyData);*/
   }
 
   onEdit(dep:Department) : void{
