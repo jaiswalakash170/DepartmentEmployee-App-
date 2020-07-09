@@ -18,6 +18,7 @@ import { DepartmentComponent } from './department/department.component';
 import { ShowDepComponent } from './department/show-dep/show-dep.component';
 import { EditDepComponent } from './department/edit-dep/edit-dep.component';
 import { AddDepComponent } from './department/add-dep/add-dep.component';
+import {MatSortModule} from '@angular/material/sort';
 
 import {DepartmentService} from './services/department.service';
 import {EmployeeService} from './services/employee.service';
@@ -42,7 +43,8 @@ import {EmployeeService} from './services/employee.service';
     MatIconModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 import { Department } from 'src/app/models/department-model';
 import { DepartmentService } from 'src/app/services/department.service';
 
@@ -12,8 +13,11 @@ export class ShowDepComponent implements OnInit {
 
   constructor(private service:DepartmentService) { }
 
-  listData : MatTableDataSource<any>;
+  //listData : MatTableDataSource<any>;
+  listData = new MatTableDataSource();
   displayedColumns : string[] = ['Options', 'DepartmentID', 'DepartmentName'];
+
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
 
   ngOnInit(): void {
     this.refreshDepList();
@@ -22,6 +26,7 @@ export class ShowDepComponent implements OnInit {
   refreshDepList() : void{
     this.service.getDepList().subscribe(data => {
       this.listData = new MatTableDataSource(data);
+      this.listData.sort = this.sort;
     });
     /*var dummyData = [{DepartmentID:1, DepartmentName:"IT"}, 
                      {DepartmentID:2, DepartmentName:"Finance"},
