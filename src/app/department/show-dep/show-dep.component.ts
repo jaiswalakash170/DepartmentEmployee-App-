@@ -15,7 +15,7 @@ export class ShowDepComponent implements OnInit {
 
   //listData : MatTableDataSource<any>;
   listData = new MatTableDataSource();
-  displayedColumns : string[] = ['Options', 'DepartmentID', 'DepartmentName'];
+  displayedColumns : string[] = ['Options', 'departmentID', 'departmentName'];
 
   @ViewChild(MatSort, {static: true}) sort : MatSort;
 
