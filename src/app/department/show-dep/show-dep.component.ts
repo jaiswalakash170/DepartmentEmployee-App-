@@ -38,6 +38,10 @@ export class ShowDepComponent implements OnInit {
     this.listData = new MatTableDataSource(dummyData);*/
   }
 
+  applyFilter(filtervalue: String){
+      this.listData.filter = filtervalue.trim().toLocaleLowerCase();
+  }
+
   onEdit(dep:Department) : void{
     console.log(dep);
   }
