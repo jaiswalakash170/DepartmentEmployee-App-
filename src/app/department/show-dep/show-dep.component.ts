@@ -13,7 +13,12 @@ import { AddDepComponent } from 'src/app/department/add-dep/add-dep.component';
 })
 export class ShowDepComponent implements OnInit {
 
-  constructor(private service:DepartmentService, private dialog:MatDialog) { }
+  constructor(private service:DepartmentService, private dialog:MatDialog) {
+      this.service.listen().subscribe((m:any) => {
+        console.log(m);
+        this.refreshDepList();
+      });
+   }
 
   //listData : MatTableDataSource<any>;
   listData = new MatTableDataSource();
