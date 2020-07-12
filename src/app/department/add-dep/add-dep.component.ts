@@ -31,7 +31,13 @@ export class AddDepComponent implements OnInit {
 
   }
 
-  onSubmit(form:NgForm): void{
-    console.log(form.value);
+  onSubmit(form:NgForm){
+    //console.log(form.value);
+    this.service.addDepartment(form.value).subscribe(res=>
+      {
+        this.resetForm(form);
+        alert(res);
+        console.log(res);
+      });
   }
 }

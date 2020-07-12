@@ -17,4 +17,8 @@ export class DepartmentService {
   getDepList() : Observable<Department[]>{
     return this.http.get<Department[]>(this.APIUrl + 'show');
   }
+
+  addDepartment(dep:Department){
+    return this.http.post(this.APIUrl + 'add', this.formData);
+  }
 }
