@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule } from '@angular/forms';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
@@ -46,7 +47,8 @@ import {EmployeeService} from './services/employee.service';
     MatButtonModule,
     HttpClientModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],
