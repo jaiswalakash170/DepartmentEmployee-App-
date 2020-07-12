@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
 import { Department } from 'src/app/models/department-model';
 import { DepartmentService } from 'src/app/services/department.service';
+import { AddDepComponent } from 'src/app/department/add-dep/add-dep.component';
 
 @Component({
   selector: 'app-show-dep',
@@ -11,7 +13,7 @@ import { DepartmentService } from 'src/app/services/department.service';
 })
 export class ShowDepComponent implements OnInit {
 
-  constructor(private service:DepartmentService) { }
+  constructor(private service:DepartmentService, private dialog:MatDialog) { }
 
   //listData : MatTableDataSource<any>;
   listData = new MatTableDataSource();
@@ -40,6 +42,14 @@ export class ShowDepComponent implements OnInit {
 
   applyFilter(filtervalue: String){
       this.listData.filter = filtervalue.trim().toLocaleLowerCase();
+  }
+
+  onAdd() : void{
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "70%";
+      this.dialog.open(AddDepComponent, dialogConfig);
   }
 
   onEdit(dep:Department) : void{
