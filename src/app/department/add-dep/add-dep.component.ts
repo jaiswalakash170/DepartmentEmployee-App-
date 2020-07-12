@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog'
 import { DepartmentService } from 'src/app/services/department.service';
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-add-dep',
   templateUrl: './add-dep.component.html',
@@ -18,6 +19,7 @@ export class AddDepComponent implements OnInit {
 
   onClose(): void{
     this.dialogbox.close();
+    this.service.filter('Register click');
   }
 
   resetForm(form?:NgForm): void{
