@@ -1,12 +1,23 @@
-<div class="d-flex justify-content-between">
-    <h4> Edit Department - {{data.departmentID}} </h4>
+<div class="d-flex justify-content-between m-3">
+    <h4> Edit Department</h4>
     <button mat-button (click)="onClose()">
         <mat-icon>close</mat-icon>
     </button>
 </div>
 <div style="overflow: auto; height: 450px;">
     <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-        <div class="mt-4 input-group">
+        <div class="m-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Department ID</span>
+            </div>
+            <input readonly="readonly" type="text" 
+            class="form-control"
+            name="DepartmentID"
+            #DepartmentID="ngModel"
+            [(ngModel)]="service.formData.departmentID"/> 
+        </div>
+
+        <div class="m-3 input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Department Name</span>
             </div>
@@ -20,7 +31,7 @@
         *ngIf="DepartmentName.invalid && DepartmentName.touched">
             Please enter DepartmentName
         </div>
-        <button mat-button mat-raised-button class="mt-4" color="primary" type= "submit" 
+        <button mat-button mat-raised-button class="m-3" color="primary" type= "submit" 
         [disabled]="form.invalid"> Update Department </button>
     </form>
 </div>

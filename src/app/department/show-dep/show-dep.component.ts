@@ -62,6 +62,7 @@ export class ShowDepComponent implements OnInit {
   }
 
   onEdit(dep:Department) : void{
+    this.service.formData = dep;
     //console.log(dep);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

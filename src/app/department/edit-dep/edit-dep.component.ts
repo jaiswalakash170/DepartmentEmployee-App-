@@ -26,7 +26,7 @@ export class EditDepComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
-    //console.log(form.value);
+    console.log(form.value);
     this.service.updateDepartment(form.value).subscribe((res : Department)=>
       {
         var s : string = "Updated Department - " + res.departmentName;
