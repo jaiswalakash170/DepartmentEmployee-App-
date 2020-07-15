@@ -6,6 +6,7 @@ import { Department } from 'src/app/models/department-model';
 import { DepartmentService } from 'src/app/services/department.service';
 import { AddDepComponent } from 'src/app/department/add-dep/add-dep.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EditDepComponent } from '../edit-dep/edit-dep.component';
 
 @Component({
   selector: 'app-show-dep',
@@ -61,7 +62,13 @@ export class ShowDepComponent implements OnInit {
   }
 
   onEdit(dep:Department) : void{
-    console.log(dep);
+    //console.log(dep);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    dialogConfig.data = dep;
+    this.dialog.open(EditDepComponent, dialogConfig);
   }
 
   onDelete(id : number) : void{
