@@ -66,12 +66,15 @@ export class ShowDepComponent implements OnInit {
 
   onDelete(id : number) : void{
     console.log(id);
-    this.service.deleteDepartment(id).subscribe((res : Department)=>
+    if(confirm('Are you sure to delete!!!!'))
     {
-      console.log(res);
-      var s : string = "Deleted Department - " + res.departmentName;
-      this._snackBar.open(s, '', {duration: 5000, verticalPosition: 'top',});
-    });
-    this.service.filter('Register click');
+      this.service.deleteDepartment(id).subscribe((res : Department)=>
+      {
+        console.log(res);
+        var s : string = "Deleted Department - " + res.departmentName;
+        this._snackBar.open(s, '', {duration: 5000, verticalPosition: 'top',});
+      });
+      this.service.filter('Register click');
+    }
   }
 }
