@@ -1,0 +1,14 @@
+table 
+{
+    width: 100%;
+}
+.Filter-Container .mat-form-field {
+    width: 400px;
+    
+    margin-left: 360px;
+}
+    
+.Dialogue-Container {
+    margin-left: 360px;
+    width: 200px;
+}
