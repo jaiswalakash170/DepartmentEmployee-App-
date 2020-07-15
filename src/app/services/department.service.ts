@@ -31,6 +31,10 @@ export class DepartmentService {
     return this.http.delete(this.APIUrl + 'delete/' + id, this.httpOptions);
   }
 
+  updateDepartment(dep: Department){
+    return this.http.put(this.APIUrl + 'update', this.formData, this.httpOptions);
+  }
+
   private _listeners = new Subject<any>();
 
   listen():Observable<any>{
