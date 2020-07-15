@@ -11,6 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
@@ -48,7 +49,8 @@ import {EmployeeService} from './services/employee.service';
     HttpClientModule,
     MatSortModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],
