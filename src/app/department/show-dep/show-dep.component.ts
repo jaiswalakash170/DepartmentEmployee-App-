@@ -72,5 +72,6 @@ export class ShowDepComponent implements OnInit {
       var s : string = "Deleted Department - " + res.departmentName;
       this._snackBar.open(s, '', {duration: 5000, verticalPosition: 'top',});
     });
+    this.service.filter('Register click');
   }
 }
