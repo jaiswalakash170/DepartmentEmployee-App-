@@ -1,8 +1,8 @@
 export class Employee
 {
-    EmployeeID : number
-    EmployeeName : string
-    Department : number
-    MailID : string
-    DOJ : Date
+    employeeID : number
+    employeeName : string
+    department : number
+    mailID : string
+    dOJ : Date
 }
