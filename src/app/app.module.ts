@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
@@ -50,7 +51,8 @@ import {EmployeeService} from './services/employee.service';
     MatSortModule,
     MatDialogModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],

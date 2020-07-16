@@ -20,11 +20,13 @@ export class AddEmpComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetForm();
+    this.refreshDropdownList();
+    console.log(this.listItems);
   }
 
   refreshDropdownList(): void {
     this.service.getDepDropdownList().subscribe(data => {
-      data.array.forEach(element => {
+      data.forEach(element => {
         this.listItems.push(element["departmentName"]);
       });
     });
