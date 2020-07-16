@@ -6,6 +6,7 @@ import { Employee } from 'src/app/models/employee-model'
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddEmpComponent } from '../add-emp/add-emp.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EditEmpComponent } from '../edit-emp/edit-emp.component';
 
 @Component({
   selector: 'app-show-emp',
@@ -52,8 +53,15 @@ export class ShowEmpComponent implements OnInit {
     this.dialog.open(AddEmpComponent, dialogConfig);
   }
 
-  onEdit(dep:Employee) : void{
-    console.log(dep);
+  onEdit(emp:Employee) : void{
+    console.log("Employee OnAdd() - " + emp);
+    this.service.formData = emp;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    dialogConfig.data = emp;
+    this.dialog.open(EditEmpComponent, dialogConfig);
   }
 
   onDelete(id : number) : void{
