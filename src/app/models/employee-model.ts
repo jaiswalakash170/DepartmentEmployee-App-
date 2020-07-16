@@ -4,5 +4,5 @@ export class Employee
     employeeName : string
     department : string
     mailID : string
-    dOJ : Date
+    dOJ : string
 }
