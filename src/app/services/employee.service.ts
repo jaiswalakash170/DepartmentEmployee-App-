@@ -36,6 +36,10 @@ export class EmployeeService {
     return this.http.delete(this.APIUrl + 'delete/' + id, this.httpOptions);
   }
 
+  updateEmployee(dep: Employee){
+    return this.http.put(this.APIUrl + 'update', this.formData, this.httpOptions);
+  }
+
   private _listeners = new Subject<any>();
 
   listen():Observable<any>{
