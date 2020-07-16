@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Employee } from 'src/app/models/employee-model';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
+import { Department } from '../models/department-model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,11 @@ export class EmployeeService {
   };
 
   getEmpList() : Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.APIUrl + 'show');
+    return this.http.get<Employee[]>(this.APIUrl + 'show', this.httpOptions);
+  }
+
+  getDepDropdownList() : Observable<any>{
+    return this.http.get<Department[]>(this.APIUrl + 'department', this.httpOptions);
   }
 
   addEmployee(dep:Employee){

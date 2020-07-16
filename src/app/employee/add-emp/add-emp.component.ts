@@ -16,8 +16,18 @@ export class AddEmpComponent implements OnInit {
     public service:EmployeeService,
     private _snackBar: MatSnackBar) { }
 
+  public listItems: Array<String> = [];
+
   ngOnInit(): void {
     this.resetForm();
+  }
+
+  refreshDropdownList(): void {
+    this.service.getDepDropdownList().subscribe(data => {
+      data.array.forEach(element => {
+        this.listItems.push(element["departmentName"]);
+      });
+    });
   }
 
   onClose(): void{
