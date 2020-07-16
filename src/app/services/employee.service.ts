@@ -11,6 +11,8 @@ export class EmployeeService {
 
   constructor(private http:HttpClient) { }
 
+  formData: Employee;
+
   readonly APIUrl = "http://localhost:9999/employee/";
 
   httpOptions = {
@@ -19,5 +21,19 @@ export class EmployeeService {
 
   getEmpList() : Observable<Employee[]>{
     return this.http.get<Employee[]>(this.APIUrl + 'show');
+  }
+
+  addEmployee(dep:Employee){
+    return this.http.post(this.APIUrl + 'add', this.formData, this.httpOptions);
+  }
+
+  private _listeners = new Subject<any>();
+
+  listen():Observable<any>{
+    return this._listeners.asObservable(); 
+  }
+
+  filter(filterBy:string){
+    this._listeners.next(filterBy);
   }
 }
