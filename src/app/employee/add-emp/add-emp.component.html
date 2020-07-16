@@ -20,11 +20,15 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Department Name</span>
             </div>
-            <input required minlength="2" type="text" 
+            <select required minlength="2" type="text" 
             class="form-control"
             name="DepartmentName"
             #DepartmentName="ngModel"
-            [(ngModel)]="service.formData.department"/> 
+            [(ngModel)]="service.formData.department">
+                <option *ngFor="let dl of listItems" [value]="dl" >
+                    {{dl}}
+                </option>
+            </select> 
         </div>
         <div class="mt-4 input-group">
             <div class="input-group-prepend">
@@ -46,7 +50,7 @@
             #DOJ="ngModel"
             [(ngModel)]="service.formData.dOJ"/> 
         </div>
-        
+
         <button mat-button mat-raised-button class="mt-4" color="primary" type= "submit" 
         [disabled]="form.invalid"> Add Employee </button>
     </form>
