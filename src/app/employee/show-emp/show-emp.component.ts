@@ -3,6 +3,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/models/employee-model'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddEmpComponent } from '../add-emp/add-emp.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-show-emp',
@@ -11,7 +14,14 @@ import { Employee } from 'src/app/models/employee-model'
 })
 export class ShowEmpComponent implements OnInit {
 
-  constructor(private service:EmployeeService) { }
+  constructor(private service:EmployeeService,
+    private dialog:MatDialog,
+    private _snackBar: MatSnackBar) { 
+      this.service.listen().subscribe((m:any) => {
+        console.log(m);
+        this.refreshEmpList();
+      });
+    }
 
   //listData : MatTableDataSource<any>;
   listData = new MatTableDataSource();
@@ -35,6 +45,11 @@ export class ShowEmpComponent implements OnInit {
   }
   onAdd() : void{
     console.log("Employee OnAdd() called");
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    this.dialog.open(AddEmpComponent, dialogConfig);
   }
 
   onEdit(dep:Employee) : void{
