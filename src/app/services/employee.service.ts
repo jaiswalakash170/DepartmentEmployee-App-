@@ -25,7 +25,7 @@ export class EmployeeService {
   }
 
   getDepDropdownList() : Observable<any>{
-    return this.http.get<Department[]>(this.APIUrl + 'department', this.httpOptions);
+    return this.http.get<Department[]>(this.APIUrl + 'departments', this.httpOptions);
   }
 
   addEmployee(dep:Employee){
