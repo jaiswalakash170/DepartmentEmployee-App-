@@ -57,6 +57,16 @@ export class ShowEmpComponent implements OnInit {
   }
 
   onDelete(id : number) : void{
-    console.log(id);
+    console.log("Employee onDelete() - ID : " + id);
+    if(confirm('Are you sure to delete!!!!'))
+    {
+      this.service.deleteEmployee(id).subscribe((res : Employee)=>
+      {
+        console.log(res);
+        var s : string = "Deleted Employee - " + res.employeeName;
+        this._snackBar.open(s, '', {duration: 5000, verticalPosition: 'top',});
+      });
+      this.service.filter('Register click');
+    }
   }
 }
