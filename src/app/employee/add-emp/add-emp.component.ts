@@ -46,7 +46,7 @@ export class AddEmpComponent implements OnInit {
       employeeName:'',
       department:'',
       mailID:'',
-      dOJ: new Date("2020-07-16")
+      dOJ: ''
     }
   }
 
