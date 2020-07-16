@@ -85,7 +85,6 @@ export class EditEmpComponent implements OnInit {
     this.service.formData.doj = this.date.format("YYYY-MM-DD").toString();
     this.service.addEmployee(form.value).subscribe((res : Employee)=>
       {
-        this.resetForm(form);
         var s : string = "Updated Employee - " + res.employeeName;
         this._snackBar.open(s, '', {duration: 5000, verticalPosition: 'top',});
         console.log(res);
